@@ -244,13 +244,3 @@ structural_similarity = similarity_calculator.calculate_similarity(file_name1, f
 
 
 
-# In[ ]:
-
-
-#BpmnDiagramGraph: Carica i diagrammi BPMN e individua i nodi (task, eventi, ecc.) e i flussi di sequenza (edges).
-#BpmnSimilarity:
-#get_bpmn_nodes: Recupera i nodi dal diagramma BPMN.
-#get_bpmn_flows: Recupera i flussi di sequenza (edges) dal diagramma BPMN.
-#calculate_structure_similarity: Confronta i flussi di sequenza dei due diagrammi BPMN. Viene calcolata come rapporto tra gli archi corrispondenti tra i due diagrammi rispetto al numero massimo di archi presenti in uno dei due diagrammi.
-#calculate_similarity: Carica i due diagrammi BPMN dai file XML specificati, estrae i nodi e i flussi, e calcola direttamente la similarità strutturale.
-
