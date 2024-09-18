@@ -53,8 +53,7 @@ class BpmnSimilarity:
         # Basic structure similarity based on the comparison of edges
         total_edges = max(len(raw_edges), len(edges))
         if total_edges == 0:
-            return 0  # Avoid division by zero
-
+            return 0  
         matching_edges = len(set(raw_edges) & set(edges))  # Intersection of edges
         structure_similarity = matching_edges / total_edges
         return structure_similarity
