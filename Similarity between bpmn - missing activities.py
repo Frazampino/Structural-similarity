@@ -60,21 +60,20 @@ class BpmnSimilarity:
 
     def calculate_similarity(self, file_name1, file_name2):
         try:
-            # Load the first BPMN diagram
+           
             raw_bpmn = BpmnDiagramGraph()
             raw_bpmn.load_diagram_from_xml_file(file_name1)
             raw_edges = self.get_bpmn_flows(raw_bpmn)
 
-            # Load the second BPMN diagram
+          
             bpmn = BpmnDiagramGraph()
             bpmn.load_diagram_from_xml_file(file_name2)
             edges = self.get_bpmn_flows(bpmn)
 
-            # Debug output to verify loaded nodes
+     
             print(f"Edges from {file_name1}:", raw_edges)
             print(f"Edges from {file_name2}:", edges)
 
-            # Calculate structural similarity
             structure_sim = self.calculate_structure_similarity(raw_edges, edges)
             print(f"Structural similarity: {round(structure_sim, 3)}")
 
