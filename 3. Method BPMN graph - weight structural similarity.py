@@ -1,3 +1,6 @@
+#Method 3 (intermediate-advanced level): This is a more advanced version of the second method, incorporating weights.
+#This approach not only considers the structure and types of nodes, but also assigns weights to the nodes and edges, allowing for a more nuanced similarity calculation based on the importance or relevance of different elements.
+
 # In[1]:
 
 
