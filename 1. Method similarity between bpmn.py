@@ -1,7 +1,9 @@
+#Method 1 (basic level): Compares the sequences of flows (edges) between nodes and calculates a similarity based on the intersection of these flows.
+#Simple and straightforward, it only considers the flows between nodes and provides a quick measure.
+#It does not take into account the type of nodes (tasks, events, etc.), meaning that diagrams with the same structure but with different types of nodes may appear very similar, even if they are semantically different.
+
 #!/usr/bin/env python
 # coding: utf-8
-
-
 import xml.etree.ElementTree as ET
 
 class BpmnDiagramGraph:
