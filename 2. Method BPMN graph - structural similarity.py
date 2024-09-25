@@ -1,3 +1,14 @@
+#Method 2 (intermediate level): Uses the NetworkX library and measures the graph edit distance between two graphs. This approach considers both the nodes and their connections.
+
+#This method takes into account a more detailed structure, including the types of nodes, and calculates a more sophisticated similarity based on how much one graph needs to be modified to become identical to the other.
+#It may be more complex to interpret and slower for large diagrams.
+
+
+
+
+
+
+
 #!/usr/bin/env python
 # coding: utf-8
 
