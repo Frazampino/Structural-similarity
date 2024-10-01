@@ -16,39 +16,39 @@ def extract_tasks_from_bpmn(bpmn_file):
     root = tree.getroot()
     namespace = {'bpmn': 'http://www.omg.org/spec/BPMN/20100524/MODEL'}
     
-    # Estrazione dei nomi delle attività dai nodi <bpmn:task>
+    
     tasks = [elem.get('name') for elem in root.findall('.//bpmn:task', namespace)]
     return [t for t in tasks if t]  # Ritorna solo le attività non vuote
 
-# Funzione per preprocessare il testo
+
 def preprocess_text(text):
-    text = text.lower()  # Conversione in minuscolo
-    text = re.sub(r'\W+', ' ', text)  # Rimozione dei caratteri non alfanumerici
+    text = text.lower()  
+    text = re.sub(r'\W+', ' ', text)  
     return text
 
-# Funzione per calcolare la cosine similarity tra due processi
+
 def calculate_cosine_similarity(process_a_tasks, process_b_tasks):
     # Preprocessamento delle etichette
     process_a_tasks = [preprocess_text(task) for task in process_a_tasks]
     process_b_tasks = [preprocess_text(task) for task in process_b_tasks]
 
-    # Uniamo le attività in un'unica lista per la vectorizzazione
+    
     all_tasks = process_a_tasks + process_b_tasks
 
-    # Calcolo della TF-IDF
+  
     vectorizer = TfidfVectorizer()
     tfidf_matrix = vectorizer.fit_transform(all_tasks)
     
-    # Separiamo le matrici TF-IDF per ciascun processo
+    
     process_a_matrix = tfidf_matrix[:len(process_a_tasks)]
     process_b_matrix = tfidf_matrix[len(process_a_tasks):]
 
-    # Calcolo della cosine similarity tra le attività dei due processi
+   
     similarity_matrix = cosine_similarity(process_a_matrix, process_b_matrix)
     
     return similarity_matrix
 
-# Funzione per calcolare il Node Matching Score
+
 def calculate_node_matching_score(similarity_matrix):
     # Per ogni attività in Process A, troviamo il massimo punteggio di similarità con Process B
     max_similarities_a_to_b = similarity_matrix.max(axis=1)
