@@ -11,7 +11,7 @@ model_name = 'bert-base-multilingual-cased'
 tokenizer = BertTokenizer.from_pretrained(model_name)
 model = BertModel.from_pretrained(model_name)
 
-# Funzione per ottenere l'embedding di una frase
+
 def get_embedding(text):
     inputs = tokenizer(text, return_tensors='pt', padding=True, truncation=True, max_length=512)
     with torch.no_grad():
@@ -39,13 +39,12 @@ def parse_bpmn(file_path):
 
     namespaces = {'bpmn': 'http://www.omg.org/spec/BPMN/20100524/MODEL'}
     
-    # Estrazione dei task
+   
     for task in root.findall('.//bpmn:task', namespaces):
         task_id = task.get('id')
         task_name = task.get('name', task_id) 
         tasks.append({"id": task_id, "name": task_name})
 
-    # Estrazione delle lane
     for lane in root.findall('.//bpmn:lane', namespaces):
         lane_id = lane.get('id')
         lane_name = lane.get('name', lane_id)  
